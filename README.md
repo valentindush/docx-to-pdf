@@ -7,6 +7,29 @@ This project provides a Node.js solution (TypeScript, Bun) to convert a Docx buf
 - Import the main function and pass a Docx buffer to receive a PDF buffer in return.
 - No LibreOffice or external office suite required.
 
+## API Usage
+
+You can run the API server to convert `.docx` files to PDF via HTTP:
+
+### Start the API server
+
+```
+bun run src/api.ts
+```
+
+The server will start on [http://localhost:3000](http://localhost:3000).
+
+### Endpoints
+
+- `POST /convert` — Upload a `.docx` file (form field: `file`), receive a PDF file in response.
+- `GET /api-docs` — Swagger UI for API documentation and testing.
+
+#### Example cURL request
+
+```
+curl -X POST -F "file=@yourfile.docx" http://localhost:3000/convert --output converted.pdf
+```
+
 ## Development
 
 - Built with TypeScript and Bun.
